@@ -5,6 +5,7 @@ import Layout from "../pages/Layout"
 import Board from "../pages/Board"
 import Logout from "../pages/Logout"
 import MyMessages from "../pages/MyMessages"
+import AuthGuard from "../components/authguard"
 
 export const router = createBrowserRouter(
     [
@@ -25,6 +26,14 @@ export const router = createBrowserRouter(
             path: "/",
             element: <Layout />,
             children: [
+                {
+                    path: "/my-messages",
+                    element:(
+                        <AuthGuard>
+                            <MyMessages/>
+                        </AuthGuard>
+                    ) 
+                },
                 {
                     index: true,
                     element: <Board />

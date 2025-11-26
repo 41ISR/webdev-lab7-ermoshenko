@@ -12,6 +12,7 @@ const MessageField = () => {
         try {
             await api.sendMessage(message)
             await getMessages()
+            e.target.reset()
         } catch (error) {
             console.error(error)
         }
